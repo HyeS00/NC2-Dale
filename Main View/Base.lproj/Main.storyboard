@@ -10,10 +10,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Vision___CoreML" customModuleProvider="target" sceneMemberID="viewController">
+                <tapGestureRecognizer numberOfTouchesRequired="2" id="vs7-vX-fTG" userLabel="Double-Tap Recognizer">
+                    <connections>
+                        <action selector="doubleTap" destination="BYZ-38-t0r" id="7AP-64-w7r"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hEF-lt-K0R" userLabel="Single-Tap Recognizer">
+                    <connections>
+                        <action selector="singleTap" destination="BYZ-38-t0r" id="AQ6-1q-cHe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,17 +89,6 @@
                         <outlet property="startupPrompts" destination="Ff1-e9-ozN" id="UOi-yZ-jzV"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="hEF-lt-K0R" userLabel="Single-Tap Recognizer">
-                    <connections>
-                        <action selector="singleTap" destination="BYZ-38-t0r" id="AQ6-1q-cHe"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer numberOfTouchesRequired="2" id="vs7-vX-fTG" userLabel="Double-Tap Recognizer">
-                    <connections>
-                        <action selector="doubleTap" destination="BYZ-38-t0r" id="7AP-64-w7r"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2154" y="633"/>
         </scene>
@@ -156,7 +156,7 @@
         <!--Detect-->
         <scene sceneID="ArJ-2j-A6F">
             <objects>
-                <viewController id="2s4-vK-qS2" customClass="DetectViewContrller" customModule="Vision___CoreML" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2s4-vK-qS2" customClass="MainViewController" customModule="Vision___CoreML" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H9I-HP-kX8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,27 +217,33 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jXu-ea-U8S">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ek1-RA-bky">
-                                <rect key="frame" x="87" y="619" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ek1-RA-bky">
+                                <rect key="frame" x="20" y="651" width="374" height="142"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYU-p4-vda">
-                                        <rect key="frame" x="99" y="54" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYU-p4-vda">
+                                        <rect key="frame" x="166.5" y="61" width="41.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nYU-p4-vda" firstAttribute="centerY" secondItem="Ek1-RA-bky" secondAttribute="centerY" id="Hyx-Dn-7kD"/>
+                                    <constraint firstItem="nYU-p4-vda" firstAttribute="centerX" secondItem="Ek1-RA-bky" secondAttribute="centerX" id="MVF-b7-lV2"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bry-lp-4jM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Ek1-RA-bky" firstAttribute="top" secondItem="5xe-gz-fuC" secondAttribute="bottom" constant="40" id="4Rk-FV-vim"/>
+                            <constraint firstItem="Bry-lp-4jM" firstAttribute="bottom" secondItem="Ek1-RA-bky" secondAttribute="bottom" constant="20" id="4TP-IW-SW7"/>
                             <constraint firstItem="Bry-lp-4jM" firstAttribute="trailing" secondItem="5xe-gz-fuC" secondAttribute="trailing" constant="20" id="9qQ-LR-4So"/>
                             <constraint firstItem="jXu-ea-U8S" firstAttribute="top" secondItem="Bry-lp-4jM" secondAttribute="top" id="A7I-hm-i8b"/>
                             <constraint firstItem="Bry-lp-4jM" firstAttribute="bottom" secondItem="5xe-gz-fuC" secondAttribute="bottom" constant="202" id="BgH-dg-lbE"/>
+                            <constraint firstItem="Bry-lp-4jM" firstAttribute="trailing" secondItem="Ek1-RA-bky" secondAttribute="trailing" constant="20" id="YBi-BC-bIn"/>
+                            <constraint firstItem="Ek1-RA-bky" firstAttribute="leading" secondItem="Bry-lp-4jM" secondAttribute="leading" constant="20" id="ZuF-lr-XBo"/>
                             <constraint firstItem="5xe-gz-fuC" firstAttribute="leading" secondItem="Bry-lp-4jM" secondAttribute="leading" constant="20" id="aEf-sZ-11T"/>
                             <constraint firstItem="jXu-ea-U8S" firstAttribute="top" secondItem="Bry-lp-4jM" secondAttribute="top" id="cni-PU-5Us"/>
                             <constraint firstItem="5xe-gz-fuC" firstAttribute="top" secondItem="Bry-lp-4jM" secondAttribute="top" constant="192" id="d9C-Bd-Oby"/>
@@ -250,10 +256,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Detect" image="camera.viewfinder" catalog="system" id="ORy-5n-ijY"/>
                     <connections>
-                        <outlet property="cameraButton" destination="u5l-sg-XsJ" id="vK9-x0-2pp"/>
-                        <outlet property="galleryButton" destination="u5l-sg-XsJ" id="6Rr-jD-eJK"/>
+                        <outlet property="cameraButton" destination="5pY-G4-0LA" id="0yj-mc-6Mb"/>
+                        <outlet property="galleryButton" destination="u5l-sg-XsJ" id="fZT-T7-R9b"/>
                         <outlet property="imageView" destination="jXu-ea-U8S" id="ofZ-87-Zph"/>
-                        <outlet property="predictionLabel" destination="nYU-p4-vda" id="q7e-zi-2Hl"/>
+                        <outlet property="predictionLabel" destination="nYU-p4-vda" id="V6W-yx-jV9"/>
+                        <outlet property="startupPrompts" destination="5xe-gz-fuC" id="rlo-xo-rg0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p9X-3V-xdY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -20,23 +20,30 @@ class MainViewController: UIViewController {
     @IBOutlet weak var startupPrompts: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var predictionLabel: UILabel!
+    
+    @IBOutlet weak var cameraButton: UIView!
+    @IBOutlet weak var galleryButton: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let cameraTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cameraButtonTapped))
+        cameraButton.addGestureRecognizer(cameraTapGestureRecognizer)
+        
+        let galleryButtonRecognizer = UITapGestureRecognizer(target: self, action: #selector(galleryButtonTapped))
+        galleryButton.addGestureRecognizer(galleryButtonRecognizer)
+    }
 }
 
 extension MainViewController {
     // MARK: Main storyboard actions
     /// The method the storyboard calls when the user one-finger taps the screen.
-    @IBAction func singleTap() {
-        // Show options for the source picker only if the camera is available.
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            present(photoPicker, animated: false)
-            return
-        }
-
+    
+    @objc func cameraButtonTapped(sender: UITapGestureRecognizer) {
         present(cameraPicker, animated: false)
     }
-
-    /// The method the storyboard calls when the user two-finger taps the screen.
-    @IBAction func doubleTap() {
+    
+    @objc func galleryButtonTapped(sender: UITapGestureRecognizer) {
         present(photoPicker, animated: false)
     }
 }
