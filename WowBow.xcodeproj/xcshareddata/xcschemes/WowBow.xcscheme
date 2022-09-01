@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "11063F5D1EC0EECC0033EE6D"
                BuildableName = "Vision + CoreML.app"
-               BlueprintName = "Vision + CoreML"
-               ReferencedContainer = "container:Vision+Core-ML.xcodeproj">
+               BlueprintName = "WowBow"
+               ReferencedContainer = "container:WowBow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,8 +46,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "11063F5D1EC0EECC0033EE6D"
             BuildableName = "Vision + CoreML.app"
-            BlueprintName = "Vision + CoreML"
-            ReferencedContainer = "container:Vision+Core-ML.xcodeproj">
+            BlueprintName = "WowBow"
+            ReferencedContainer = "container:WowBow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "11063F5D1EC0EECC0033EE6D"
             BuildableName = "Vision + CoreML.app"
-            BlueprintName = "Vision + CoreML"
-            ReferencedContainer = "container:Vision+Core-ML.xcodeproj">
+            BlueprintName = "WowBow"
+            ReferencedContainer = "container:WowBow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

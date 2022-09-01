@@ -12,6 +12,7 @@
 		11063F691EC0EECC0033EE6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11063F681EC0EECC0033EE6D /* Assets.xcassets */; };
 		11063F741EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11063F731EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
 		E1277A3128C088E4006551FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1277A2F28C088E4006551FD /* Model.xcdatamodeld */; };
+		E1277A3928C08A99006551FD /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1277A3828C08A99006551FD /* CoreDataManager.swift */; };
 		E1A875F828BB2C1300879D95 /* DogBreed.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A875F728BB2C1300879D95 /* DogBreed.mlmodel */; };
 		E1A875FD28BCAFC800879D95 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A875FC28BCAFC800879D95 /* UIView+Extension.swift */; };
 		EB6D4EB126BA58FC00DCF755 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EB6D4EAF26BA58FC00DCF755 /* MobileNet.mlmodel */; };
@@ -24,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		11063F5E1EC0EECC0033EE6D /* Vision + CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vision + CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11063F5E1EC0EECC0033EE6D /* WowBow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WowBow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11063F611EC0EECC0033EE6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11063F631EC0EECC0033EE6D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		11063F681EC0EECC0033EE6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +35,7 @@
 		83D09BCE84BD8F0B0100E8B3 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C858E5CC1ECA99CC006C5CAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E1277A3028C088E4006551FD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		E1277A3828C08A99006551FD /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		E1A875F728BB2C1300879D95 /* DogBreed.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DogBreed.mlmodel; sourceTree = "<group>"; };
 		E1A875FC28BCAFC800879D95 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EB6D4EAF26BA58FC00DCF755 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
@@ -83,7 +85,7 @@
 		11063F5F1EC0EECC0033EE6D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				11063F5E1EC0EECC0033EE6D /* Vision + CoreML.app */,
+				11063F5E1EC0EECC0033EE6D /* WowBow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +116,7 @@
 				EB9D7ECB26C2D5F800039949 /* MainViewController+CameraPicker.swift */,
 				EB9D7EC926C2D39400039949 /* MainViewController+PhotoPicker.swift */,
 				EB6D4EB826BA5A2F00DCF755 /* Main.storyboard */,
+				E1277A3828C08A99006551FD /* CoreDataManager.swift */,
 			);
 			path = "Main View";
 			sourceTree = "<group>";
@@ -156,9 +159,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		11063F5D1EC0EECC0033EE6D /* Vision + CoreML */ = {
+		11063F5D1EC0EECC0033EE6D /* WowBow */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 11063F701EC0EECC0033EE6D /* Build configuration list for PBXNativeTarget "Vision + CoreML" */;
+			buildConfigurationList = 11063F701EC0EECC0033EE6D /* Build configuration list for PBXNativeTarget "WowBow" */;
 			buildPhases = (
 				11063F5A1EC0EECC0033EE6D /* Sources */,
 				11063F5B1EC0EECC0033EE6D /* Frameworks */,
@@ -168,9 +171,9 @@
 			);
 			dependencies = (
 			);
-			name = "Vision + CoreML";
+			name = WowBow;
 			productName = "Vision+ML Example";
-			productReference = 11063F5E1EC0EECC0033EE6D /* Vision + CoreML.app */;
+			productReference = 11063F5E1EC0EECC0033EE6D /* WowBow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +193,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 11063F591EC0EECC0033EE6D /* Build configuration list for PBXProject "Vision+Core-ML" */;
+			buildConfigurationList = 11063F591EC0EECC0033EE6D /* Build configuration list for PBXProject "WowBow" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,7 +206,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				11063F5D1EC0EECC0033EE6D /* Vision + CoreML */,
+				11063F5D1EC0EECC0033EE6D /* WowBow */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +235,7 @@
 				E1A875F828BB2C1300879D95 /* DogBreed.mlmodel in Sources */,
 				11063F741EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				11063F641EC0EECC0033EE6D /* MainViewController.swift in Sources */,
+				E1277A3928C08A99006551FD /* CoreDataManager.swift in Sources */,
 				11063F621EC0EECC0033EE6D /* AppDelegate.swift in Sources */,
 				EB9D7ECE26C2D78300039949 /* ImagePredictor.swift in Sources */,
 				E1A875FD28BCAFC800879D95 /* UIView+Extension.swift in Sources */,
@@ -420,7 +424,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		11063F591EC0EECC0033EE6D /* Build configuration list for PBXProject "Vision+Core-ML" */ = {
+		11063F591EC0EECC0033EE6D /* Build configuration list for PBXProject "WowBow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11063F6E1EC0EECC0033EE6D /* Debug */,
@@ -429,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		11063F701EC0EECC0033EE6D /* Build configuration list for PBXNativeTarget "Vision + CoreML" */ = {
+		11063F701EC0EECC0033EE6D /* Build configuration list for PBXNativeTarget "WowBow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				11063F711EC0EECC0033EE6D /* Debug */,

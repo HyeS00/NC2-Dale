@@ -6,8 +6,11 @@ The view controller that selects an image and makes a prediction using Vision an
 */
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
+    let coreDataManager = CoreDataManager()
+    
     var firstRun = true
 
     /// A predictor instance that uses Vision and Core ML to generate prediction strings from a photo.
@@ -33,6 +36,7 @@ class MainViewController: UIViewController {
         let galleryButtonRecognizer = UITapGestureRecognizer(target: self, action: #selector(galleryButtonTapped))
         galleryButton.addGestureRecognizer(galleryButtonRecognizer)
     }
+    
 }
 
 extension MainViewController {
@@ -61,9 +65,16 @@ extension MainViewController {
     /// Updates the storyboard's prediction label.
     /// - Parameter message: A prediction or message string.
     /// - Tag: updatePredictionLabel
+
     func updatePredictionLabel(_ message: String) {
         DispatchQueue.main.async {
             self.predictionLabel.text = message
+            // 코어데이터에 저장
+            if (message != "Making predictions for the photo..."){
+                self.coreDataManager.save(dogPhoto: self.imageView.image!.pngData()!, photoDate: Date(), dogBreedInfo: message)
+            }
+            print("-----------------------------------------------")
+            print(self.coreDataManager.fetch().count)
         }
 
         if firstRun {
@@ -79,12 +90,10 @@ extension MainViewController {
     func userSelectedPhoto(_ photo: UIImage) {
         updateImage(photo)
         updatePredictionLabel("Making predictions for the photo...")
-
         DispatchQueue.global(qos: .userInitiated).async {
             self.classifyImage(photo)
         }
     }
-
 }
 
 extension MainViewController {

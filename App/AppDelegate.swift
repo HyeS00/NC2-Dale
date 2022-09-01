@@ -6,6 +6,7 @@ Defines the application's delegate class.
 */
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
