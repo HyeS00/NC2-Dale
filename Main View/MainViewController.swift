@@ -70,11 +70,12 @@ extension MainViewController {
         DispatchQueue.main.async {
             self.predictionLabel.text = message
             // 코어데이터에 저장
-            if (message != "Making predictions for the photo..."){
-                self.coreDataManager.save(dogPhoto: self.imageView.image!.pngData()!, photoDate: Date(), dogBreedInfo: message)
-            }
-            print("-----------------------------------------------")
-            print(self.coreDataManager.fetch().count)
+//            if (message != "Making predictions for the photo..."){
+//                self.coreDataManager.save(dogPhoto: self.imageView.image!.pngData()!, photoDate: Date(), dogBreedInfo: message)
+//            }
+            //왜 메인화면으로 잠시동안 나가지는 걸까??
+            //print("-----------------------------------------------")
+            //print(self.coreDataManager.fetch().count)
         }
 
         if firstRun {
@@ -89,7 +90,7 @@ extension MainViewController {
     /// - Parameter photo: A photo from the camera or photo library.
     func userSelectedPhoto(_ photo: UIImage) {
         updateImage(photo)
-        updatePredictionLabel("Making predictions for the photo...")
+        updatePredictionLabel("잠시만 기다려 주세요.")
         DispatchQueue.global(qos: .userInitiated).async {
             self.classifyImage(photo)
         }
