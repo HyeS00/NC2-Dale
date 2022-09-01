@@ -11,6 +11,7 @@
 		11063F641EC0EECC0033EE6D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11063F631EC0EECC0033EE6D /* MainViewController.swift */; };
 		11063F691EC0EECC0033EE6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11063F681EC0EECC0033EE6D /* Assets.xcassets */; };
 		11063F741EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11063F731EC0F5270033EE6D /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		E1277A3128C088E4006551FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1277A2F28C088E4006551FD /* Model.xcdatamodeld */; };
 		E1A875F828BB2C1300879D95 /* DogBreed.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E1A875F728BB2C1300879D95 /* DogBreed.mlmodel */; };
 		E1A875FD28BCAFC800879D95 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A875FC28BCAFC800879D95 /* UIView+Extension.swift */; };
 		EB6D4EB126BA58FC00DCF755 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = EB6D4EAF26BA58FC00DCF755 /* MobileNet.mlmodel */; };
@@ -32,6 +33,7 @@
 		7A862B3053580E92D52AA6E3 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		83D09BCE84BD8F0B0100E8B3 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		C858E5CC1ECA99CC006C5CAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E1277A3028C088E4006551FD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E1A875F728BB2C1300879D95 /* DogBreed.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = DogBreed.mlmodel; sourceTree = "<group>"; };
 		E1A875FC28BCAFC800879D95 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		EB6D4EAF26BA58FC00DCF755 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 		E1A875FB28BCAF9E00879D95 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1277A2F28C088E4006551FD /* Model.xcdatamodeld */,
 				E1A875FC28BCAFC800879D95 /* UIView+Extension.swift */,
 			);
 			path = Resources;
@@ -232,6 +235,7 @@
 				11063F621EC0EECC0033EE6D /* AppDelegate.swift in Sources */,
 				EB9D7ECE26C2D78300039949 /* ImagePredictor.swift in Sources */,
 				E1A875FD28BCAFC800879D95 /* UIView+Extension.swift in Sources */,
+				E1277A3128C088E4006551FD /* Model.xcdatamodeld in Sources */,
 				EB9D7ECC26C2D5F800039949 /* MainViewController+CameraPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +439,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E1277A2F28C088E4006551FD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1277A3028C088E4006551FD /* Model.xcdatamodel */,
+			);
+			currentVersion = E1277A3028C088E4006551FD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 11063F561EC0EECC0033EE6D /* Project object */;
 }
