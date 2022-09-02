@@ -6,8 +6,11 @@ The view controller that selects an image and makes a prediction using Vision an
 */
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
+    let coreDataManager = CoreDataManager()
+    
     var firstRun = true
 
     /// A predictor instance that uses Vision and Core ML to generate prediction strings from a photo.
@@ -20,23 +23,31 @@ class MainViewController: UIViewController {
     @IBOutlet weak var startupPrompts: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var predictionLabel: UILabel!
+    
+    @IBOutlet weak var cameraButton: UIView!
+    @IBOutlet weak var galleryButton: UIView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let cameraTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cameraButtonTapped))
+        cameraButton.addGestureRecognizer(cameraTapGestureRecognizer)
+        
+        let galleryButtonRecognizer = UITapGestureRecognizer(target: self, action: #selector(galleryButtonTapped))
+        galleryButton.addGestureRecognizer(galleryButtonRecognizer)
+    }
+    
 }
 
 extension MainViewController {
     // MARK: Main storyboard actions
     /// The method the storyboard calls when the user one-finger taps the screen.
-    @IBAction func singleTap() {
-        // Show options for the source picker only if the camera is available.
-        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-            present(photoPicker, animated: false)
-            return
-        }
-
+    
+    @objc func cameraButtonTapped(sender: UITapGestureRecognizer) {
         present(cameraPicker, animated: false)
     }
-
-    /// The method the storyboard calls when the user two-finger taps the screen.
-    @IBAction func doubleTap() {
+    
+    @objc func galleryButtonTapped(sender: UITapGestureRecognizer) {
         present(photoPicker, animated: false)
     }
 }
@@ -54,9 +65,17 @@ extension MainViewController {
     /// Updates the storyboard's prediction label.
     /// - Parameter message: A prediction or message string.
     /// - Tag: updatePredictionLabel
+
     func updatePredictionLabel(_ message: String) {
         DispatchQueue.main.async {
             self.predictionLabel.text = message
+            // 코어데이터에 저장
+//            if (message != "Making predictions for the photo..."){
+//                self.coreDataManager.save(dogPhoto: self.imageView.image!.pngData()!, photoDate: Date(), dogBreedInfo: message)
+//            }
+            //왜 메인화면으로 잠시동안 나가지는 걸까??
+            //print("-----------------------------------------------")
+            //print(self.coreDataManager.fetch().count)
         }
 
         if firstRun {
@@ -71,13 +90,11 @@ extension MainViewController {
     /// - Parameter photo: A photo from the camera or photo library.
     func userSelectedPhoto(_ photo: UIImage) {
         updateImage(photo)
-        updatePredictionLabel("Making predictions for the photo...")
-
+        updatePredictionLabel("잠시만 기다려 주세요.")
         DispatchQueue.global(qos: .userInitiated).async {
             self.classifyImage(photo)
         }
     }
-
 }
 
 extension MainViewController {
